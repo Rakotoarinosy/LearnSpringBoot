@@ -23,7 +23,7 @@ export class PatientService {
   }
 
   createPatient(patient: Patient): Observable<AxiosResponse<Patient>> {
-    return from(axios.post<Patient>(this.baseURL, patient));
+    return from(axios.post<Patient>(`${this.baseURL}/create`, patient));
   }
 
   updatePatient(id: number, patient: Patient): Observable<AxiosResponse<Patient>> {
