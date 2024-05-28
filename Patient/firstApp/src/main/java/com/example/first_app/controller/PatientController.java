@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins= "http://localhost:4200")
 @RequestMapping("/patients")
 public class PatientController {
 
@@ -36,7 +37,7 @@ public class PatientController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Patient> createPatient(@RequestBody Patient patient) {
         Patient createdPatient = patientService.createPatient(patient);
         return new ResponseEntity<>(createdPatient, HttpStatus.CREATED);
